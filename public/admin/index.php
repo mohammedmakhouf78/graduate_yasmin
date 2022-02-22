@@ -1,6 +1,7 @@
 <?php
 
-include "../../functions/frontFunctions.php";
+include $_SERVER['DOCUMENT_ROOT']. "/functions/frontFunctions.php";
+include $_SERVER['DOCUMENT_ROOT']. "/functions/backFunctions.php";
 
 ?>
 

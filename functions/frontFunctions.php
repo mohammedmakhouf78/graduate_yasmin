@@ -12,7 +12,7 @@ include __DIR__. "/../settings.php";
  */
 function asset(string $path)
 {
-    return "/assets/$path";
+    return "/public/assets/$path";
 }
 
 /**

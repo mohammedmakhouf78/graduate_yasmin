@@ -37,9 +37,5 @@
 <!-- ChartJS -->
 <script src="<?= asset('adminLTE/plugins/chart.js/Chart.min.js') ?>"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="<?= asset('adminLTE/dist/js/demo.js') ?>"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= asset('adminLTE/dist/js/pages/dashboard2.js') ?>"></script>
 </body>
 </html>
