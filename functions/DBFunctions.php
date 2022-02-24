@@ -1,17 +1,34 @@
 <?php
 
-$conn = mysqli_connect("localhost","mohammed","","graduate_yasmin",3309);
+$conn = mysqli_connect("localhost", "mohammed", "", "graduate_yasmin", 3309);
 
-$data = [
-    'name' => "ahmed",
-    "email" => "a@a.com",
-    "password" => "asdfsadf"
-];
 
-function insert($table,$data)
+
+function insert($conn, $table, $data)
 {
-    $query = "INSERT INTO $table(`name`,`email`,`password`,`phone1`,
-    `phone2`,`address`,`is_admin`) VALUES ('$name','$email','$password','$phone1','$phone2','$address',$is_admin)";
-    
-    $reslut = mysqli_query($conn,$query);
+    $columns = "";
+    $valuesData = "";
+    foreach ($data as $key => $value) {
+        $columns .= "$key" . ",";
+        $valuesData .= "'$value'" . ",";
+    }
+    $columns = rtrim($columns, ",");
+    $valuesData = rtrim($valuesData, ",");
+
+    $query = "INSERT INTO $table($columns) VALUES ($valuesData)";
+    return mysqli_query($conn, $query);
+}
+
+// select * from table ''
+function select($conn, $table, $columns)
+{
+    $query = "SELECT $columns FROM $table";
+    $result = mysqli_query($conn, $query);
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+function delete($conn, $table, $id)
+{
+    $query = "DELETE FROM $table WHERE id=$id";
+    return mysqli_query($conn, $query);
 }

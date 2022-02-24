@@ -6,10 +6,11 @@ function validatePhone($data,$name,$message,$path)
 {
     $data = preg_replace("/[^0-9]/",'', $data);
     $data = test_input($data);
-    if(empty($data));
+    if(empty($data))
     {
         addErrorToSession($name,$message);
-        redirect($path);   
+        redirect($path);
+        exit;   
     }
     return true;
 }
@@ -17,9 +18,10 @@ function validatePhone($data,$name,$message,$path)
 function validateString($data,$name,$message,$path)
 {
     $data = test_input($data);
-    if (!(preg_match('/^[A-Za-z]*$/', $data) && !empty($data))) {
+    if (empty($data)) {
         addErrorToSession($name,$message);
-        redirect($path);        
+        redirect($path);   
+        exit;     
     }
     return true;
 }
@@ -31,6 +33,7 @@ function validateEmail($data,$name,$message,$path)
     {
         addErrorToSession($name,$message);
         redirect($path);
+        exit;
     }
     return true;
 }
@@ -50,33 +53,43 @@ function validatePassword($data,$name,$path)
             $passwordErr = "Your Password Must Contain At Least 8 Characters!";
             addErrorToSession($name,$passwordErr);
             redirect($path);
+            exit;
         }
         elseif(!preg_match("#[0-9]+#",$password)) {
             $passwordErr = "Your Password Must Contain At Least 1 Number!";
             addErrorToSession($name,$passwordErr);
             redirect($path);
+            exit;
         }
         elseif(!preg_match("#[A-Z]+#",$password)) {
             $passwordErr = "Your Password Must Contain At Least 1 Capital Letter!";
             addErrorToSession($name,$passwordErr);
             redirect($path);
+            exit;
         }
         elseif(!preg_match("#[a-z]+#",$password)) {
             $passwordErr = "Your Password Must Contain At Least 1 Lowercase Letter!";
             addErrorToSession($name,$passwordErr);
             redirect($path);
+            exit;
         }
     }
     else {
          $passwordErr = "Please enter password   ";
          addErrorToSession($name,$passwordErr);
             redirect($path);
+            exit;
     }
 }
 
 function addErrorToSession($key,$value)
 {
     $_SESSION['errors'][$key] = $value;
+}
+
+function addSuccessToSession($key,$value)
+{
+    $_SESSION['success'][$key] = $value;
 }
 
 function redirect($path)
