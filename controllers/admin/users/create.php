@@ -1,7 +1,5 @@
 <?php
-include __DIR__ . "/../../../functions/backFunctions.php";
 include __DIR__ . "/../../../functions/functions.php";
-include __DIR__ . "/../../../functions/DBFunctions.php";
 if (isset($_POST['name'])) {
     $name = $_POST['name'];
     validateString($name, "name", "error in name", getPage("users/create.php"));

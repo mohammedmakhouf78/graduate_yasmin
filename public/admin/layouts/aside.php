@@ -30,32 +30,13 @@
        </div>
      </div>
 
-     <!-- Sidebar Menu -->
      <nav class="mt-2">
        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-         <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-         <li class="nav-item menu-open">
-           <a href="#" class="nav-link active">
-             <i class="nav-icon fas fa-tachometer-alt"></i>
-             <p>
-               الرئيسية
-               <i class="right fas fa-angle-left"></i>
-             </p>
-           </a>
-           <ul class="nav nav-treeview">
-             <li class="nav-item">
-               <a href="./index2.html" class="nav-link active">
-                 <i class="far fa-circle nav-icon"></i>
-                 <p>جدول الإعدادات</p>
-               </a>
-             </li>
-           </ul>
-         </li>
+
 
          <li class="nav-item menu-open">
            <a href="#" class="nav-link active">
-             <i class="nav-icon fas fa-tachometer-alt"></i>
+             <i class="nav-icon fas fa-user"></i>
              <p>
                Users
                <i class="right fas fa-angle-left"></i>
@@ -63,15 +44,42 @@
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
-               <a href="<?= getPage("users/create.php") ?>" class="nav-link active">
+               <a href="<?= getPage("users/create.php") ?>" class="nav-link <?= getUrl() == getPage("users/create.php") ? 'active' : '' ?>">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Create</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="<?= getPage("users/index.php") ?>" class="nav-link active">
+               <a href="<?= getPage("users/index.php") ?>" class="nav-link <?= getUrl() == 'getPage("users/index.php")' ? 'active' : '' ?>">
                  <i class="far fa-circle nav-icon"></i>
                  <p>All Users</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+
+
+
+
+         <li class="nav-item menu-open">
+           <a href="#" class="nav-link active">
+             <i class="nav-icon fas fa-user"></i>
+             <p>
+               Customers
+               <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?= getPage("customers/create.php") ?>" class="nav-link <?= getUrl() == getPage("customers/create.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Create</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?= getPage("customers/index.php") ?>" class="nav-link <?= getUrl() == getPage("customers/index.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>All Customers</p>
                </a>
              </li>
            </ul>

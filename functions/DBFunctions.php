@@ -19,6 +19,17 @@ function insert($conn, $table, $data)
     return mysqli_query($conn, $query);
 }
 
+function update($conn, $table, $data, $id)
+{
+    $valuesData = "";
+    foreach ($data as $key => $value) {
+        $valuesData .= "`$key` = '$value' ,";
+    }
+    $valuesData = rtrim($valuesData, ",");
+    $query = "UPDATE $table SET $valuesData WHERE id = $id";
+    return mysqli_query($conn, $query);
+}
+
 // select * from table ''
 function select($conn, $table, $columns)
 {
@@ -31,4 +42,21 @@ function delete($conn, $table, $id)
 {
     $query = "DELETE FROM $table WHERE id=$id";
     return mysqli_query($conn, $query);
+}
+
+function selectWhere($conn, $table, $columns, $where)
+{
+    $query = "SELECT $columns FROM $table WHERE $where";
+    $result = mysqli_query($conn, $query);
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+
+function DBjoin($conn, $columns, $table1, $table2, $on)
+{
+    $query = "SELECT $columns FROM $table1
+    JOIN $table2
+    ON $on";
+    $result = mysqli_query($conn, $query);
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }

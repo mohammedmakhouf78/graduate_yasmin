@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__. "/../settings.php";
+
 
 function getController($path)
 {
@@ -10,4 +10,9 @@ function getController($path)
 function getPage($path)
 {
     return "/public/admin/pages/$path";
+}
+
+function getUrl()
+{
+    return $_SERVER['REQUEST_URI'];
 }

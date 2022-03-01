@@ -1,6 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/functions/functions.php";
-$users = select($conn, 'users', '*');
+$customers = DBjoin($conn, 'customers.id,users.name', 'customers', 'users', 'customers.user_id = users.id');
 ?>
 
 <?php include layout("header.php"); ?>
@@ -28,7 +28,7 @@ $users = select($conn, 'users', '*');
                     <!-- jquery validation -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Create User</h3>
+                            <h3 class="card-title">All Customers</h3>
                         </div>
 
                         <div>
@@ -51,50 +51,21 @@ $users = select($conn, 'users', '*');
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone1</th>
-                                        <th>Phone2</th>
-                                        <th>Address</th>
-                                        <th>Is Admin</th>
+                                        <th>User_id</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($users as $user) : ?>
+                                    <?php foreach ($customers as $customer) : ?>
                                         <tr>
-                                            <td><?= $user['id']; ?></td>
+                                            <td><?= $customer['id']; ?></td>
+                                            <td><?= $customer['name']; ?></td>
                                             <td>
-                                                <?= $user['name']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $user['email']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $user['phone1']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $user['phone2']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $user['address']; ?>
-                                            </td>
-                                            <?php if ($user['is_admin'] == 1) : ?>
-                                                <td class="text-success">
-                                                    Admin
-                                                </td>
-                                            <?php else : ?>
-                                                <td class="text-info">
-                                                    User
-                                                </td>
-                                            <?php endif; ?>
-
-                                            <td>
-                                                <a class="btn btn-success" href="<?= getPage("users/edit.php") ?>?id=<?= $user['id']; ?>">
+                                                <a class="btn btn-success" href="<?= getPage("customers/edit.php") ?>?id=<?= $customer['id']; ?>">
                                                     <i class="fas fa-marker"></i>
                                                 </a>
-                                                <form action="<?= getController("admin/users/delete.php") ?>" method="POST">
-                                                    <input type="hidden" name="id" value="<?= $user['id']; ?>">
+                                                <form action="<?= getController("admin/customers/delete.php") ?>" method="POST">
+                                                    <input type="hidden" name="id" value="<?= $customer['id']; ?>">
                                                     <button type="submit" class="btn btn-danger">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </button>
@@ -106,12 +77,7 @@ $users = select($conn, 'users', '*');
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone1</th>
-                                        <th>Phone2</th>
-                                        <th>Address</th>
-                                        <th>Is Admin</th>
+                                        <th>User_id</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

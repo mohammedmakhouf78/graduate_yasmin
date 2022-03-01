@@ -1,7 +1,6 @@
 <?php
-session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/functions/frontFunctions.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/functions/backFunctions.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/functions/functions.php";
+
 ?>
 
 <?php include layout("header.php"); ?>
