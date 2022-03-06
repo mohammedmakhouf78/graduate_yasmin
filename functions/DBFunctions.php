@@ -38,6 +38,13 @@ function select($conn, $table, $columns)
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
+function query($conn, $q)
+{
+    $query = "$q";
+    $result = mysqli_query($conn, $query);
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
 function delete($conn, $table, $id)
 {
     $query = "DELETE FROM $table WHERE id=$id";

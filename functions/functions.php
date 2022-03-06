@@ -19,6 +19,30 @@ function validatePhone($data, $name, $message, $path)
     return true;
 }
 
+function validateImage($name, $message, $path)
+{
+    $type = $_FILES[$name]['type'];
+    $ext = explode('/', $type)[1];
+    if ($ext == "jpg" || $ext == "jpeg" || $ext == "png") {
+        return true;
+    } else {
+        addErrorToSession($name, $message);
+        redirect($path);
+        exit;
+    }
+}
+
+function required($data, $name, $message, $path)
+{
+    $data = test_input($data);
+    if (empty($data)) {
+        addErrorToSession($name, $message);
+        redirect($path);
+        exit;
+    }
+    return true;
+}
+
 function validateString($data, $name, $message, $path)
 {
     $data = test_input($data);

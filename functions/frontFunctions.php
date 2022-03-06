@@ -23,3 +23,21 @@ function layout($path)
 {
     return ROOT . "/public/admin/layouts/$path";
 }
+
+
+/**
+ * getImage
+ *
+ * @param  mixed $path
+ * @return void
+ */
+function getImage(string $path)
+{
+    return "/public/images/$path";
+}
+
+
+function getImageRoot($path)
+{
+    return ROOT . "/public/images/$path";
+}

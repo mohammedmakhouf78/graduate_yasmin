@@ -74,6 +74,11 @@
       "autoWidth": false,
       "responsive": true,
     });
+
+    $('#birth_date').datetimepicker({
+      format: 'L'
+    });
+
   });
 </script>
 

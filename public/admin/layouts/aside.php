@@ -34,8 +34,19 @@
        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
 
-         <li class="nav-item menu-open">
-           <a href="#" class="nav-link active">
+         <li class="nav-item 
+         <?=
+          (getUrl() == getPage("users/create.php") ||
+            getUrl() == getPage("users/index.php"))
+            ? 'menu-open' : '' ?>">
+
+
+           <a href="#" class="nav-link 
+           <?=
+            (getUrl() == getPage("users/create.php") ||
+              getUrl() == getPage("users/index.php"))
+              ? 'active' : '' ?>
+           ">
              <i class="nav-icon fas fa-user"></i>
              <p>
                Users
@@ -50,7 +61,7 @@
                </a>
              </li>
              <li class="nav-item">
-               <a href="<?= getPage("users/index.php") ?>" class="nav-link <?= getUrl() == 'getPage("users/index.php")' ? 'active' : '' ?>">
+               <a href="<?= getPage("users/index.php") ?>" class="nav-link <?= getUrl() == getPage("users/index.php") ? 'active' : '' ?>">
                  <i class="far fa-circle nav-icon"></i>
                  <p>All Users</p>
                </a>
@@ -61,8 +72,17 @@
 
 
 
-         <li class="nav-item menu-open">
-           <a href="#" class="nav-link active">
+         <li class="nav-item 
+         <?=
+          (getUrl() == getPage("customers/create.php") ||
+            getUrl() == getPage("customers/index.php"))
+            ? 'menu-open' : '' ?>">
+           <a href="#" class="nav-link 
+           <?=
+            (getUrl() == getPage("customers/create.php") ||
+              getUrl() == getPage("customers/index.php"))
+              ? 'active' : '' ?>
+           ">
              <i class="nav-icon fas fa-user"></i>
              <p>
                Customers
@@ -84,6 +104,81 @@
              </li>
            </ul>
          </li>
+
+
+
+         <li class="nav-item 
+         <?=
+          (getUrl() == getPage("workers/create.php") ||
+            getUrl() == getPage("workers/index.php"))
+            ? 'menu-open' : '' ?>">
+           <a href="#" class="nav-link 
+           <?=
+            (getUrl() == getPage("workers/create.php") ||
+              getUrl() == getPage("workers/index.php"))
+              ? 'active' : '' ?>
+           ">
+             <i class="nav-icon fas fa-user"></i>
+             <p>
+               Workers
+               <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?= getPage("workers/create.php") ?>" class="nav-link <?= getUrl() == getPage("workers/create.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Create</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?= getPage("workers/index.php") ?>" class="nav-link <?= getUrl() == getPage("workers/index.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>All Workers</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+
+
+
+
+         <li class="nav-item 
+         <?=
+          (getUrl() == getPage("works/create.php") ||
+            getUrl() == getPage("works/index.php"))
+            ? 'menu-open' : '' ?>">
+           <a href="#" class="nav-link 
+           <?=
+            (getUrl() == getPage("works/create.php") ||
+              getUrl() == getPage("works/index.php"))
+              ? 'active' : '' ?>
+           ">
+             <i class="nav-icon fas fa-user"></i>
+             <p>
+               Works
+               <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?= getPage("works/create.php") ?>" class="nav-link <?= getUrl() == getPage("works/create.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Create</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?= getPage("works/index.php") ?>" class="nav-link <?= getUrl() == getPage("works/index.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>All Works</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+
+
+
+
        </ul>
      </nav>
      <!-- /.sidebar-menu -->
