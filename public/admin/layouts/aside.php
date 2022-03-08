@@ -14,7 +14,7 @@
          <img src="<?= asset('adminLTE/dist/img/user2-160x160') ?>.jpg" class="img-circle elevation-2" alt="User Image">
        </div>
        <div class="info">
-         <a href="#" class="d-block">Alexander Pierce</a>
+         <a href="#" class="d-block"><?= $_SESSION['admin']['name'] ?></a>
        </div>
      </div>
 
@@ -171,6 +171,81 @@
                <a href="<?= getPage("works/index.php") ?>" class="nav-link <?= getUrl() == getPage("works/index.php") ? 'active' : '' ?>">
                  <i class="far fa-circle nav-icon"></i>
                  <p>All Works</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+
+
+
+
+
+
+         <li class="nav-item 
+         <?=
+          (getUrl() == getPage("work_images/create.php") ||
+            getUrl() == getPage("work_images/index.php"))
+            ? 'menu-open' : '' ?>">
+           <a href="#" class="nav-link 
+           <?=
+            (getUrl() == getPage("work_images/create.php") ||
+              getUrl() == getPage("work_images/index.php"))
+              ? 'active' : '' ?>
+           ">
+             <i class="nav-icon fas fa-user"></i>
+             <p>
+               Work Images
+               <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?= getPage("work_images/create.php") ?>" class="nav-link <?= getUrl() == getPage("work_images/create.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Create</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?= getPage("work_images/index.php") ?>" class="nav-link <?= getUrl() == getPage("work_images/index.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>All Work Images</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+
+
+
+
+
+         <li class="nav-item 
+         <?=
+          (getUrl() == getPage("customers_workers/create.php") ||
+            getUrl() == getPage("customers_workers/index.php"))
+            ? 'menu-open' : '' ?>">
+           <a href="#" class="nav-link 
+           <?=
+            (getUrl() == getPage("customers_workers/create.php") ||
+              getUrl() == getPage("customers_workers/index.php"))
+              ? 'active' : '' ?>
+           ">
+             <i class="nav-icon fas fa-user"></i>
+             <p>
+               Customers Jobs
+               <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?= getPage("customers_workers/create.php") ?>" class="nav-link <?= getUrl() == getPage("customers_workers/create.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Create</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?= getPage("customers_workers/index.php") ?>" class="nav-link <?= getUrl() == getPage("customers_workers/index.php") ? 'active' : '' ?>">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>All Customers Jobs</p>
                </a>
              </li>
            </ul>

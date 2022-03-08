@@ -1,3 +1,11 @@
+<?php
+
+if(!isset($_SESSION['admin']))
+{
+  header("location: ". getPageAdmin("auth/login.php"));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

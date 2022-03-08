@@ -12,6 +12,11 @@ function getPage($path)
     return "/public/admin/pages/$path";
 }
 
+function getPageAdmin($path)
+{
+    return "/public/admin/$path";
+}
+
 function getUrl()
 {
     return $_SERVER['REQUEST_URI'];
@@ -37,6 +42,24 @@ function uploadImage($field, $dir, $name)
      * في حالة نجاح رفع الصورة بنرجع اسم الصورة
      * في حالة الفشل بنرجع خطا
      */
+    if($result == true)
+    {
+        return "{$name}{$rand}.$ext";
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function uploadImageArray($arr,$dir,$name)
+{
+    $type = $arr['type'];
+    $ext = explode('/', $type)[1];
+    $image_name = $arr['tmp_name'];
+    $rand = rand(10000, 1000000);
+    $result = move_uploaded_file($image_name, ROOT . "/public/images/$dir/{$name}{$rand}.$ext");
+
     if($result == true)
     {
         return "{$name}{$rand}.$ext";
