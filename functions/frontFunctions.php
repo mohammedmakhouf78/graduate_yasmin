@@ -24,6 +24,24 @@ function layout($path)
     return ROOT . "/public/admin/layouts/$path";
 }
 
+function components($path)
+{
+    return ROOT ."/public/site/components/$path";
+}
+
+
+function frontLayout($path)
+{
+    return ROOT . "/public/site/layouts/$path";
+}
+
+function isLoggedIn()
+{
+    if(isset($_SESSION['worker']) || isset($_SESSION['customer']))
+    {
+        redirect(getPageSite('index.php'));
+    }
+}
 
 /**
  * getImage

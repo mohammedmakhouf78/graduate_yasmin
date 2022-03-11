@@ -17,6 +17,11 @@ function getPageAdmin($path)
     return "/public/admin/$path";
 }
 
+function getPageSite($path)
+{
+    return "/public/site/$path";
+}
+
 function getUrl()
 {
     return $_SERVER['REQUEST_URI'];
@@ -27,7 +32,6 @@ function dd($data)
     var_dump($data);
     die;
 }
-
 
 function uploadImage($field, $dir, $name)
 {

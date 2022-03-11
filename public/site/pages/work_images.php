@@ -1,7 +1,13 @@
 <?php
- include $_SERVER['DOCUMENT_ROOT'] . "/functions/functions.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/functions/functions.php";
+$id = $_GET['id'];
+$images = query($conn, 'select * from work_images
+where work_id = ' . $id);
+
+$work = query($conn,"select * from works where id = " . $id)[0];
 ?>
 <?php include frontLayout('head.php'); ?>
+
 <!-- Header Start -->
 <div class="header home" style="background: linear-gradient(
       rgba(0, 83, 156, 1),
@@ -38,7 +44,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <?php include frontLayout('navbar.php'); ?>
 
@@ -48,38 +54,30 @@
             </div>
         </div>
 
-
-        <?php include components('hero.php'); ?>
-
-        
     </div>
 </div>
 <!-- Header End -->
 
 
-<!-- About Start -->
-<?php include components('about.php'); ?>
-<!-- About End -->
-
-
 <!-- Workers Start -->
-<?php include components('workers.php'); ?>
+<div class="blog">
+    <div class="container">
+        <div class="section-header">
+            <p><?= $work['date'] ?></p>
+            <h2><?= $work['title'] ?></h2>
+            <h2><?= $work['description'] ?></h2>
+        </div>
+        <div class="row">
+            <?php foreach ($images as $img) : ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <img src="<?= getImage('work_images/'.$img['image']) ?>" alt="">
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
 <!-- Workers End -->
-
-
-<!-- Feature Start -->
-<?php include components('feature.php'); ?>
-<!-- Feature End -->
-
-
-<!-- Team Start -->
-<?php include components('team.php'); ?>
-<!-- Team End -->
-
-
-<!-- FAQs Start -->
-<?php include components('faq.php'); ?>
-<!-- FAQs End -->
-
 
 <?php include frontLayout('footer.php'); ?>
